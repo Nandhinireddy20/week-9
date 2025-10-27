@@ -6,6 +6,11 @@ pipeline {
                 bat 'docker build -t registration:v1 .'
             }
         }
+        stage('Automated UI Test') { 
+            steps { 
+                 bat 'python D:/DevOps/week-2/test_registration.py' 
+            } 
+        } 
         stage('Push to Docker Hub') {
             steps {
                 bat 'docker tag registration:v1 nandhinireddy20/registration:v1'
